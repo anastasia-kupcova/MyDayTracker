@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="15" style="-fx-padding: 30px; -fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.moodtracker.controller.LoginController">
+
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Mood Tracker" />
+    <Label style="-fx-font-size: 14px; -fx-text-fill: #666;" text="Дневник самочувствия" />
+
+    <Separator prefWidth="200" />
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Логин:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="usernameField" promptText="ivan2024" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Пароль:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <PasswordField fx:id="passwordField" promptText="••••••" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    </GridPane>
+
+    <Button fx:id="loginButton" prefWidth="200" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" text="Войти" />
+
+    <Separator prefWidth="200" />
+
+    <Button fx:id="registerButton" prefWidth="200" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Регистрация" />
+
+    <Button fx:id="guestButton" prefWidth="200" style="-fx-background-color: #B0BEC5; -fx-text-fill: white;" text="Войти как гость" />
+
+</VBox>

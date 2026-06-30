@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.shape.Rectangle?>
+<VBox spacing="10" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.moodtracker.controller.MainController">
+
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+
+    <!-- Выбор года -->
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Год:" />
+        <ComboBox fx:id="yearSelector" prefWidth="80" />
+        <Label fx:id="currentYearLabel" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" />
+    </HBox>
+
+    <Separator />
+
+    <!-- Вкладки -->
+    <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+
+        <!-- Социальный контакт -->
+        <Tab closable="false" text="Социальный контакт">
+            <HBox spacing="20">
+                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                    <GridPane fx:id="socialGrid" hgap="3" vgap="3" />
+                </ScrollPane>
+                <VBox fx:id="socialLegend" spacing="10" style="-fx-padding: 10px; -fx-background-color: #F5F5F5; -fx-border-color: #DDD; -fx-border-radius: 5px;" />
+            </HBox>
+        </Tab>
+
+        <!-- Рейтинг дня -->
+        <Tab closable="false" text="Рейтинг дня">
+            <HBox spacing="20">
+                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                    <GridPane fx:id="ratingGrid" hgap="3" vgap="3" />
+                </ScrollPane>
+                <VBox fx:id="ratingLegend" spacing="10" style="-fx-padding: 10px; -fx-background-color: #F5F5F5; -fx-border-color: #DDD; -fx-border-radius: 5px;" />
+            </HBox>
+        </Tab>
+
+        <!-- Энергия -->
+        <Tab closable="false" text="Энергия">
+            <HBox spacing="20">
+                <VBox spacing="20">
+                    <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                        <GridPane fx:id="energyMorningGrid" hgap="3" vgap="3" />
+                    </ScrollPane>
+                    <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                        <GridPane fx:id="energyEveningGrid" hgap="3" vgap="3" />
+                    </ScrollPane>
+                </VBox>
+                <VBox fx:id="energyLegend" spacing="10" style="-fx-padding: 10px; -fx-background-color: #F5F5F5; -fx-border-color: #DDD; -fx-border-radius: 5px;" />
+            </HBox>
+        </Tab>
+
+        <!-- Тревожность -->
+        <Tab closable="false" text="Тревожность">
+            <HBox spacing="20">
+                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                    <GridPane fx:id="anxietyGrid" hgap="3" vgap="3" />
+                </ScrollPane>
+                <VBox fx:id="anxietyLegend" spacing="10" style="-fx-padding: 10px; -fx-background-color: #F5F5F5; -fx-border-color: #DDD; -fx-border-radius: 5px;" />
+            </HBox>
+        </Tab>
+
+        <!-- Погода -->
+        <Tab closable="false" text="Погода">
+            <HBox spacing="20">
+                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                    <GridPane fx:id="weatherGrid" hgap="3" vgap="3" />
+                </ScrollPane>
+                <VBox fx:id="weatherLegend" spacing="10" style="-fx-padding: 10px; -fx-background-color: #F5F5F5; -fx-border-color: #DDD; -fx-border-radius: 5px;" />
+            </HBox>
+        </Tab>
+
+        <!-- Сон -->
+        <Tab closable="false" text="Сон">
+            <HBox spacing="20">
+                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                    <GridPane fx:id="sleepGrid" hgap="3" vgap="3" />
+                </ScrollPane>
+                <VBox fx:id="sleepLegend" spacing="10" style="-fx-padding: 10px; -fx-background-color: #F5F5F5; -fx-border-color: #DDD; -fx-border-radius: 5px;" />
+            </HBox>
+        </Tab>
+
+        <!-- Сны -->
+        <Tab closable="false" text="Сновидения">
+            <HBox spacing="20">
+                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                    <GridPane fx:id="dreamGrid" hgap="3" vgap="3" />
+                </ScrollPane>
+                <VBox fx:id="dreamLegend" spacing="10" style="-fx-padding: 10px; -fx-background-color: #F5F5F5; -fx-border-color: #DDD; -fx-border-radius: 5px;" />
+            </HBox>
+        </Tab>
+
+        <!-- Статистика -->
+        <Tab closable="false" text="📊 Статистика">
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="ALWAYS">
+                <VBox spacing="15" style="-fx-padding: 15px;">
+
+                    <HBox alignment="CENTER_LEFT" spacing="20">
+                        <Label style="-fx-font-weight: bold;" text="Период:" />
+                        <HBox spacing="10">
+                            <RadioButton fx:id="weekRadio" text="Неделя" userData="week" />
+                            <RadioButton fx:id="monthRadio" selected="true" text="Месяц" userData="month" />
+                            <RadioButton fx:id="yearRadio" text="Год" userData="year" />
+                        </HBox>
+                        <Label style="-fx-font-weight: bold;" text="Месяц:" />
+                        <ComboBox fx:id="statsMonthCombo" disable="true" prefWidth="100" />
+                        <Label style="-fx-font-weight: bold;" text="Год:" />
+                        <ComboBox fx:id="statsYearCombo" prefWidth="80" />
+                        <Button onAction="#refreshStatistics" text="Обновить" />
+                    </HBox>
+
+                    <Separator />
+
+                    <GridPane hgap="20" vgap="20">
+
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="⭐ Рейтинг дня" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <LineChart fx:id="ratingLineChart" prefHeight="250" prefWidth="400" style="-fx-background-color: white;" title="Рейтинг по дням" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <xAxis><CategoryAxis label="День" /></xAxis>
+                            <yAxis><NumberAxis label="Рейтинг (0-5)" lowerBound="0" tickUnit="1" upperBound="5" /></yAxis>
+                        </LineChart>
+
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="⚡ Энергия" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <LineChart fx:id="energyLineChart" prefHeight="250" prefWidth="400" style="-fx-background-color: white;" title="Энергия по дням" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <xAxis><CategoryAxis label="День" /></xAxis>
+                            <yAxis><NumberAxis label="Уровень (0-100)" lowerBound="0" tickUnit="20" upperBound="100" /></yAxis>
+                        </LineChart>
+
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="😟 Тревожность" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <PieChart fx:id="anxietyPieChart" prefHeight="250" prefWidth="400" style="-fx-background-color: white;" title="Распределение" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="☀ Погода" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <PieChart fx:id="weatherPieChart" prefHeight="250" prefWidth="400" style="-fx-background-color: white;" title="Распределение" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="😴 Сон (часы)" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <BarChart fx:id="sleepBarChart" prefHeight="250" prefWidth="400" style="-fx-background-color: white;" title="Распределение часов сна" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                            <xAxis><CategoryAxis label="Часы сна" /></xAxis>
+                            <yAxis><NumberAxis label="Количество дней" /></yAxis>
+                        </BarChart>
+
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="💬 Социальный контакт" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <BarChart fx:id="socialBarChart" prefHeight="250" prefWidth="400" style="-fx-background-color: white;" title="Распределение социальной активности" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <xAxis><CategoryAxis label="Уровень (0-5)" /></xAxis>
+                            <yAxis><NumberAxis label="Количество дней" /></yAxis>
+                        </BarChart>
+
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="🌙 Сны" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                        <BarChart fx:id="dreamBarChart" prefHeight="250" prefWidth="820" style="-fx-background-color: white;" title="Распределение сновидений" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="7">
+                            <xAxis><CategoryAxis label="Тип сна" /></xAxis>
+                            <yAxis><NumberAxis label="Количество дней" /></yAxis>
+                        </BarChart>
+                  <columnConstraints>
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                  </rowConstraints>
+
+                    </GridPane>
+
+                </VBox>
+            </ScrollPane>
+        </Tab>
+        <!-- События месяца -->
+        <Tab closable="false" text="📅 События месяца">
+            <HBox spacing="20" style="-fx-padding: 15px;">
+                <GridPane fx:id="monthEventsGrid" hgap="15" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="200" />
+                        <ColumnConstraints prefWidth="200" />
+                        <ColumnConstraints prefWidth="200" />
+                        <ColumnConstraints prefWidth="200" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints prefHeight="150" />
+                        <RowConstraints prefHeight="150" />
+                        <RowConstraints prefHeight="150" />
+                    </rowConstraints>
+                </GridPane>
+                <VBox fx:id="monthEventsLegend" spacing="10" style="-fx-padding: 10px; -fx-background-color: #F5F5F5; -fx-border-color: #DDD; -fx-border-radius: 5px;">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="📖 Справочник" />
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Rectangle fill="#FFF8DC" height="20" stroke="#8B4513" strokeWidth="2" width="30" />
+                        <Label style="-fx-font-size: 12px;" text="Нет события" />
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Rectangle fill="#FFF4B0" height="20" stroke="#FFD700" strokeWidth="3" width="30" />
+                        <Label style="-fx-font-size: 12px;" text="Есть событие" />
+                    </HBox>
+                    <Label style="-fx-font-size: 10px; -fx-text-fill: #666;" text="Кликните по месяцу, чтобы добавить или изменить событие" wrapText="true" />
+                </VBox>
+            </HBox>
+        </Tab>
+
+    </TabPane>
+
+</VBox>
