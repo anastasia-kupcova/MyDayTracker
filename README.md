@@ -152,7 +152,7 @@ MyDayTracker предоставляет полный цикл отслежива
 ## Контакты
 
 По вопросам использования, предложениям по улучшению или сообщениям об ошибках:  
-Репозиторий проекта: https://github.com/yourusername/MyDayTracker  
+**Репозиторий проекта:** https://github.com/yourusername/MyDayTracker  
 **Документация:** https://github.com/yourusername/MyDayTracker/wiki  
 **Электронная почта:** idzukikatsuki@gmail.com
 
